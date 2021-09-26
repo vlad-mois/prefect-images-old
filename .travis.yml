@@ -1,0 +1,15 @@
+sudo: required
+language: generic
+services:
+  - docker
+
+before_install:
+  - docker build -t vladmois/toloka-dask toloka-dask
+  - docker build -t vladmois/prefect-client prefect-client
+  - docker build -t vladmois/prefect-agent prefect-agent
+
+after_success:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push vladmois/toloka-dask
+  - docker push vladmois/prefect-client
+  - docker push vladmois/prefect-agent
