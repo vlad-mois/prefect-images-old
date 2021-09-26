@@ -9,4 +9,4 @@ RUN DEBIAN_FRONTEND=noninteractive apt install -y \
     vim
 
 RUN pip install prefect[templates,viz,azure,kubernetes,redis]
-RUN pip install crowd-kit toloka-kit
+RUN pip install crowd-kit toloka-kit ipython
