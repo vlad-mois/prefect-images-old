@@ -1,0 +1,15 @@
+[server]
+host = "http://$APOLLO_URL"
+port = "4200"
+host_port = "4200"
+endpoint = "${server.host}:${server.port}"
+
+    [server.ui]
+    host = "http://$PREFECT_UI_URL"
+    port = "80"
+    host_port = "80"
+    endpoint = "${server.ui.host}:${server.ui.port}"
+    apollo_url = "http://$APOLLO_URL:4200/graphql"
+
+    [server.telemetry]
+    enabled = true
