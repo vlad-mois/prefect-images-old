@@ -8,5 +8,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt install -y \
     tzdata \
     vim
 
-RUN pip install prefect[templates,viz,azure,kubernetes,redis]
-RUN pip install crowd-kit toloka-kit ipython
+RUN pip install --no-cache-dir prefect[azure,kubernetes,redis,templates,viz]
+RUN pip install --no-cache-dir crowd-kit toloka-kit ipython 
+RUN pip install --no-cache-dir torch transformers
